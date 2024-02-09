@@ -25,6 +25,13 @@
                 font-weight: bold; 
                 color: #3e3e3e;
             }
+
+            input[type="checkbox"] {/*In the main.css file, this is disabled and doesn't allow checkbox to show. So override here for the checkbox*/
+                appearance: checkbox !important;
+            }
+
+
+
             
         </style>
 
@@ -58,9 +65,9 @@
 
                     where \(V_{\rm flat}\) is the asymptotic velocity and \(r_{t}\) is the transition radius. In this model, the rotation curve flattens at \(r_{t}\) and goes towards \(V_{\rm flat}\) as \(r\) increases. To get an intuitive understanding of what these parameters do, you can change these two parameters below and see how the rotation curve of our example galaxy (the green line) changes in the left plot, which shows radius against velocity.<br>
 
-                    One of the most important parameters in bar kinematics is called the bar pattern speed (\(\Omega_{\rm bar}\)), also known as the rotational frequency of the bar. As the name implies, this parameter dictates how quickly the bar rotates. To calculate the velocity of the bar at any radius, you simply multiply the pattern speed by the radius (\(\Omega_{\rm bar} \times  r\)), which is shown by the blue line below in the left plot. The intersection of the rotation curve of the galaxy and this line uniquely determines another important kinematic parameter: the corotation radius (\(R_{\rm CR}\)). The corotation radius is the radius at which the stars in the disc rotate with the exact same speed as the bar. Stars in the disc at a radius lower than the corotation radius will continuously overtake the bar, whereas stars with a radius larger than the corotation radius will continuously lag behind the bar. Do note that, rather confusingly, the corotation radius can lie outside the bar region (in fact, it usually does). You can see the effects of the bar pattern speed and corotation radius in the animation on the right. The rotating ellipse represents the bar, while the dashed circle represents the corotation radius. For clarification, I've added a circle that represents the size of the entire galaxy.<br>
+                    One of the most important parameters in bar kinematics is called the bar pattern speed (\(\Omega_{\rm bar}\)), also known as the rotational frequency of the bar. As the name implies, this parameter dictates how quickly the bar rotates. To calculate the velocity of the bar at any radius, you simply multiply the pattern speed by the radius (\(\Omega_{\rm bar} \times  r\)), which is shown by the blue line below in the left plot. The intersection of the rotation curve of the galaxy and this line uniquely determines another important kinematic parameter: the corotation radius (\(R_{\rm CR}\)). You can see the bar pattern speed and corotation radius in action in the animation on the right. The rotating ellipse represents the bar, while the dashed circle represents the corotation radius. For clarification, I've added a circle that represents the size of the entire galaxy. The corotation radius is the radius at which the stars in the disc rotate with the exact same speed as the bar. Stars in the disc at a radius lower than the corotation radius will continuously overtake the bar, whereas stars with a radius larger than the corotation radius will continuously lag behind the bar. You can see this behaviour in the animation below by adding a test particle (which represents a star in the disc of the galaxy) and varying its radius. Do note that, rather confusingly, the corotation radius can lie outside the bar region (in fact, it usually does).<br>
 
-                    The last parameter I want to talk about is \(\mathcal{R}\) (also known as "curly R"). It is the ratio of the corotation radius (\(R_{\rm CR}\)) to the bar radius (\(R_{\rm bar}\)). This parameter is often used to classify bars based on their kinematics. A bar with \(\mathcal{R} > 1.4\) is called a slow bar, while a bar that has \(1 < \mathcal{R} < 1.4\) is called a fast bar and a bar with \(\mathcal{R} < 1.0\) is called an ultrafast bar. Please play around with the different input parameters describe above (\(V_{\rm flat}\), \(r\), \(\Omega_{\rm bar}\) and \(R_{\rm bar}\)) to see how they all affect various aspects of the kinematics of barred galaxies. Also, note that every second roughly corresponds to roughly 200 million years in this simulation.
+                    The last parameter I want to talk about is \(\mathcal{R}\) (also known as "curly R"). It is the ratio of the corotation radius (\(R_{\rm CR}\)) to the bar radius (\(R_{\rm bar}\)). This parameter is often used to classify bars based on their kinematics. A bar with \(\mathcal{R} > 1.4\) is called a slow bar, while a bar that has \(1 < \mathcal{R} < 1.4\) is called a fast bar and a bar with \(\mathcal{R} < 1.0\) is called an ultrafast bar. Please play around with the different input parameters describe above (\(V_{\rm flat}\), \(r_{t}\), \(\Omega_{\rm bar}\) and \(R_{\rm bar}\)) to see how they all affect various aspects of the kinematics of barred galaxies. Also, note that every second roughly corresponds to roughly 200 million years in this simulation.
                      
 
                     
@@ -96,10 +103,27 @@
                         </div>
 
                     </div>
+
+                    <br>
+
+                    <div class="row" style="text-align: left;">
+                        <div class="col-3">
+                            <label for="testParticleCheckbox"><b>Add test particle:</b></label>
+                            <input type="checkbox" id="testParticleCheckbox">
+                        </div>
+
+                        <div class="col-3" id="testParticleRadiusDiv" style="display:none;">
+                            <label for="testParticleRadius" title="Test particle radius"><b>R<sub>test particle</sub> [arcsec]:</b></label>
+                            <input type="number" step="0.1" id="testParticleRadius" value="10" min="0" class="variable-input">
+                        </div>
+                    
+
+
                 </div> 
 
                 <br>
-                <br>
+                
+                
 
                 <!-- Display the calculated Rcr and curly R -->
                 <div class="container">
@@ -149,6 +173,11 @@
                         <p style="text-align:justify;">
                             The bar is currently <span id="curlyRText" style="font-weight: bold;">XXX</span>.
                         </p>
+
+
+                        
+                        
+
                     </div>
                 </div>
 

@@ -2,11 +2,8 @@
 
 /* TODO
     - Draw vertical lines at Rcr and barlen. 
-    - Show actual animation
-    - Add slow/fast/ultrafast
     - Add ideas for them to try out: e.g. make corotation so small it disappears (i.e. bar rotates so fast relative to disc that Rcr approaches 0.)
-    - Add hover text for the parameters
-    - Add test particles! With on/off button. 
+
 */
 
 
@@ -125,7 +122,7 @@ function updateChart() {
                     data: yData,
                     fill: false
                 }, {
-                    label: 'Ω * Radius',
+                    label: 'Ω * r',
                     borderColor: 'blue',
                     data: omegaTimesRadiusData,
                     fill: false
@@ -214,7 +211,7 @@ RbarInput.addEventListener('input', updateChart);
 const canvas = document.getElementById('animationCanvas');
 const ctx_animation = canvas.getContext('2d');
 
-// Initial ellipse properties
+// Ellipse variables
 let centerX = canvas.width / 2;
 let centerY = canvas.height / 2;
 let pixscale = canvas.width/40 // arcsec / pixel
@@ -229,6 +226,35 @@ let lastFrameTime = 0;
 const frameRate = 60;  // Set your desired frame rate (frames per second)
 const frameInterval = 1000 / frameRate;
 
+
+// Test particle variables
+
+
+
+var testParticleRadiusInput = document.getElementById('testParticleRadius'); 
+var testParticleRadius = parseFloat(testParticleRadiusInput.value) * pixscale;
+
+
+var testParticleSize = 5; //size of the test particle
+var testParticleOmega = velFunc(testParticleRadius/pixscale, parseFloat(VflatInput.value), parseFloat(rtInput.value)) / (testParticleRadius/pixscale); // angular speed of the dot in radians per second (or km s-1 arcsec-1). Calculated by doing Omega = Velcurve()/R
+var testParticleAngle = rotationAngle; // initial angle of the dot
+var testParticleCheckbox = document.getElementById("testParticleCheckbox");
+var testParticleRadiusDiv = document.getElementById('testParticleRadiusDiv');
+
+testParticleCheckbox.addEventListener('change', function() { 
+    if (testParticleCheckbox.checked) { 
+        testParticleAngle = rotationAngle; // //When checked, reset angle to angle of bar.
+        testParticleRadiusDiv.style.display = 'block'; //Enable to select radius
+
+        if (corotationRadius!==null) {
+            testParticleRadiusInput.value = corotationRadius;
+        }
+
+    } else {
+        // Disable the testParticleRadiusDiv if checkbox is unchecked
+        testParticleRadiusDiv.style.display = 'none';
+    }
+});
 
 
 function drawEllipse(timestamp) {
@@ -259,8 +285,7 @@ function drawEllipse(timestamp) {
         if (omegaInput.value) {
             rotationAngle += parseFloat(omegaInput.value)*relativeTime* elapsed/1000; // doing *elapsed/1000 instead of /frameRate to see how much time actually passed.
         }
-        
-
+  
 
         /*
         // Instead of ellipse, bar can also be rounded rectangle. Seems more convoluted though.
@@ -297,19 +322,44 @@ function drawEllipse(timestamp) {
 
 
 
+         // Update corotation radius
+         ctx_animation.beginPath();
+         ctx_animation.setLineDash([5, 5]);
+         ctx_animation.arc(centerX, centerY, corotationRadius*pixscale, 0, 2 * Math.PI);
+         ctx_animation.stroke();
+ 
+ 
+         //Update galaxy border 
+         ctx_animation.beginPath();
+         ctx_animation.setLineDash([]);
+         ctx_animation.arc(centerX, centerY, canvas.width/2, 0, 2 * Math.PI);
+         ctx_animation.stroke();
 
-        // Update corotation radius
-        ctx_animation.beginPath();
-        ctx_animation.setLineDash([5, 5]);
-        ctx_animation.arc(centerX, centerY, corotationRadius*pixscale, 0, 2 * Math.PI);
-        ctx_animation.stroke();
 
 
-        //Update galaxy border 
-        ctx_animation.beginPath();
-        ctx_animation.setLineDash([]);
-        ctx_animation.arc(centerX, centerY, canvas.width/2, 0, 2 * Math.PI);
-        ctx_animation.stroke();
+
+        // Add test particle
+        if (testParticleCheckbox.checked) {
+            testParticleX = centerX + testParticleRadius * Math.cos(testParticleAngle);
+            testParticleY = centerY + testParticleRadius * Math.sin(testParticleAngle);
+
+            ctx_animation.beginPath();
+            ctx_animation.arc(testParticleX, testParticleY, testParticleSize, 0, 2 * Math.PI); 
+            ctx_animation.fillStyle = 'red'; 
+            ctx_animation.fill();
+
+            //Update test particle
+            testParticleRadius = parseFloat(testParticleRadiusInput.value) * pixscale;
+            testParticleOmega = velFunc(testParticleRadius/pixscale, parseFloat(VflatInput.value), parseFloat(rtInput.value)) / (testParticleRadius/pixscale); // angular speed of the dot in radians per second (or km s-1 arcsec-1). Calculated by doing Omega = Velcurve()/R
+            testParticleAngle += testParticleOmega * relativeTime * elapsed / 1000; // doing *elapsed/1000 instead of /frameRate to see how much time actually passed.
+            
+
+
+    }
+
+
+
+       
 
 
 
