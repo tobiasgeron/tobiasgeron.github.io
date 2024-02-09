@@ -15,31 +15,9 @@
 
         <!-- Additional style for graphs-->
         <style>
-            /*
-            canvas {
-                border: 1px solid #000;
+            .variable-input {
+                width: 22%; /* Adjust the width as needed */
             }
-        
-            .chart-container {
-                display: flex;
-                margin: auto;
-                width: 1200px;
-                height: 400px
-            }
-    
-    
-            #rotationCurveCanvas {
-                flex: 2;  
-            }
-    
-            #animationCanvas {
-                flex: 1;  
-            }
-            
-            .info-box {
-                margin-top: 10px;
-            }
-            */
             
         </style>
 
@@ -65,35 +43,53 @@
                 </header>
 
 
+                <div class="container">
+                    <div class="row">
 
-                <label for="Vflat">Vflat [km s-1]:</label>
-                <input type="number" step="1" id="Vflat" value="300" min="0">
+                        <div class="col-3">
+                            <label for="Vflat">Vflat [km s-1]:</label>
+                            <input type="number" step="1" id="Vflat" value="300" min="0" class="variable-input">
+                        </div>
 
-                <label for="rt">rt [arcsec]:</label>
-                <input type="number" step="0.1" id="rt" value="2" min="0">
+                        <div class="col-3">
+                            <label for="rt">rt [arcsec]:</label>
+                            <input type="number" step="0.1" id="rt" value="2" min="0" class="variable-input">
+                        </div>
 
-                <label for="omega">Omega [km s-1 arcsec-1]:</label>
-                <input type="number" step="0.2" id="omega" value="25">
+                        <div class="col-3">
+                            <label for="omega">&Omega; [km s-1 arcsec-1]:</label>
+                            <input type="number" step="0.2" id="omega" value="25" class="variable-input">
+                        </div>
 
-                <label for="Rbar">Rbar [arcsec]:</label>
-                <input type="number" step="0.1" id="Rbar" value="8" min="0">
+                        <div class="col-3">
+                            <label for="Rbar">Rbar [arcsec]:</label>
+                            <input type="number" step="0.1" id="Rbar" value="8" min="0" class="variable-input">
+                        </div>
+
+                    </div>
+                </div> 
+
+                <br>
 
                 <!-- Display the calculated Rcr and curly R -->
-                <div class="info-box">
-                    <label>Corotation Radius [arcsec]:</label>
-                    <span id="corotationRadiusInfo"></span>
-                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="info-box col-3">
+                            <label>Corotation Radius [arcsec]:</label>
+                            <span id="corotationRadiusInfo"></span>
+                        </div>
 
-                <div class="info-box">
-                    <label>Curly R [-]:</label>
-                    <span id="curlyRInfo"></span>
-                </div>
+                        <div class="info-box col-3">
+                            <label>Curly R [-]:</label>
+                            <span id="curlyRInfo"></span>
+                        </div>
 
-                <div class="info-box">
-                    <label>Time elapsed [Gyr]:</label>
-                    <span id="timeElapsedInfo"></span>
-                </div>
-
+                        <div class="info-box col-3">
+                            <label>Time elapsed [Gyr]:</label>
+                            <span id="timeElapsedInfo"></span>
+                        </div>
+                    </div>
+                </div> 
 
 
                 <div class="chart-container">
@@ -108,6 +104,17 @@
                                 <canvas id="animationCanvas" width="400" height="400" style = "width: 100%; height: auto;"></canvas>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+
+                <br>
+                
+                <div class="row" style = "align-items: center;">
+                    <div class="col-8 col-7-large col-12-medium">
+                        <p>
+                            The bar is currently <span id="curlyRText">XXX</span>.
+                        </p>
                     </div>
                 </div>
 

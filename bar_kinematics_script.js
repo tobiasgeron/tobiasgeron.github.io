@@ -4,6 +4,7 @@
     - Draw vertical lines at Rcr and barlen. 
     - Show actual animation
     - Add slow/fast/ultrafast
+    - Add ideas for them to try out: e.g. make corotation so small it disappears (i.e. bar rotates so fast relative to disc that Rcr approaches 0.)
 */
 
 
@@ -13,6 +14,7 @@ var omegaInput = document.getElementById('omega');
 var RbarInput = document.getElementById('Rbar'); 
 var corotationRadiusInfo = document.getElementById('corotationRadiusInfo');
 var curlyRInfo = document.getElementById('curlyRInfo');
+var curlyRText = "TEST";
 var corotationRadius = 0;
 var curlyR = 0;
 var Vsys = 0;
@@ -90,9 +92,24 @@ function updateChart() {
         // Calculate and display curly R
         curlyR = corotationRadius / parseFloat(RbarInput.value);
         curlyRInfo.textContent = curlyR.toFixed(2);
+
+
+        if (curlyR < 1){
+            curlyRText = 'an ultrafast bar';
+        } else if (curlyR < 1.4) {
+            curlyRText = 'a fast bar';
+        } else {
+            curlyRText = 'a slow bar';
+        }
+
+        document.getElementById("curlyRText").innerText = curlyRText;
+
     } else {
         corotationRadiusInfo.textContent = 'N/A';
         curlyRInfo.textContent = 'N/A';
+
+        curlyRText = 'not well defined';
+        document.getElementById("curlyRText").innerText = curlyRText;
     }
 
     if (!chart) {
@@ -106,7 +123,7 @@ function updateChart() {
                     data: yData,
                     fill: false
                 }, {
-                    label: 'Omega * Radius',
+                    label: 'Ω * Radius',
                     borderColor: 'blue',
                     data: omegaTimesRadiusData,
                     fill: false
@@ -230,7 +247,6 @@ function drawEllipse(timestamp) {
         // Clear animation
         ctx_animation.clearRect(0, 0, canvas.width, canvas.height);
 
-        console.log(canvas.width, canvas.height);
 
         // Update bar
        
