@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Tobias Géron</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+        <!-- Additional style for graphs-->
+        <style>
+            /*
+            canvas {
+                border: 1px solid #000;
+            }
+        
+            .chart-container {
+                display: flex;
+                margin: auto;
+                width: 1200px;
+                height: 400px
+            }
+    
+    
+            #rotationCurveCanvas {
+                flex: 2;  
+            }
+    
+            #animationCanvas {
+                flex: 1;  
+            }
+            
+            .info-box {
+                margin-top: 10px;
+            }
+            */
+            
+        </style>
+
+
+	</head>
+	<body class="is-preload">
+
+        <!-- Nav -->
+            <nav id="nav">
+				<ul class="container">
+					
+				</ul>
+			</nav>
+
+
+    
+
+
+        <article id="barkinematics" class="wrapper style2">
+            <div class="container">
+                <header>
+                    <h2>Bar kinematics</h2>
+                </header>
+
+
+
+                <label for="Vflat">Vflat [km s-1]:</label>
+                <input type="number" step="1" id="Vflat" value="300" min="0">
+
+                <label for="rt">rt [arcsec]:</label>
+                <input type="number" step="0.1" id="rt" value="2" min="0">
+
+                <label for="omega">Omega [km s-1 arcsec-1]:</label>
+                <input type="number" step="0.2" id="omega" value="25">
+
+                <label for="Rbar">Rbar [arcsec]:</label>
+                <input type="number" step="0.1" id="Rbar" value="8" min="0">
+
+                <!-- Display the calculated Rcr and curly R -->
+                <div class="info-box">
+                    <label>Corotation Radius [arcsec]:</label>
+                    <span id="corotationRadiusInfo"></span>
+                </div>
+
+                <div class="info-box">
+                    <label>Curly R [-]:</label>
+                    <span id="curlyRInfo"></span>
+                </div>
+
+                <div class="info-box">
+                    <label>Time elapsed [Gyr]:</label>
+                    <span id="timeElapsedInfo"></span>
+                </div>
+
+
+
+                <div class="chart-container">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-8"> <!-- canvas for rotation curves -->
+                                <canvas id="rotationCurveCanvas" width="800" height="400"  style = "width: 100%; height: auto;"></canvas>
+                            </div>
+
+                            <div class="col-4"> <!-- canvas for rotating bar -->
+                                <canvas id="animationCanvas" width="400" height="400" style = "width: 100%; height: auto;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                
+            </div>
+        </article>
+
+
+
+
+
+
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
+        <script src="bar_kinematics_script.js"></script>
+        
+
+    </body>
+</html>
