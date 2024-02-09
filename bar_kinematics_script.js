@@ -5,6 +5,8 @@
     - Show actual animation
     - Add slow/fast/ultrafast
     - Add ideas for them to try out: e.g. make corotation so small it disappears (i.e. bar rotates so fast relative to disc that Rcr approaches 0.)
+    - Add hover text for the parameters
+    - Add test particles! With on/off button. 
 */
 
 
@@ -204,7 +206,7 @@ RbarInput.addEventListener('input', updateChart);
 
     to complete. Or, in other words, if Omega = 25 km s-1 kpc-1, then the change in angle (in rad) in 1 Myr equals
     25 / 1000. So we want 1 s (here) = 1 Myr (real), then 25/1000 is the angle that the animation should do 
-    in 1 sec. Seems rather slow. Maybe 1s = 100 Myr?
+    in 1 sec. Seems rather slow. Maybe do 1s = 200 Myr?
 
 
 */
@@ -219,7 +221,7 @@ let pixscale = canvas.width/40 // arcsec / pixel
 let barLength = parseFloat(RbarInput.value) * pixscale;
 let barWidth = barLength/4;
 let rotationAngle = 0;
-let relativeTime = 1/1000*100*2 // Om / 1000 is roughly the angle that the bar  covers in 1 Myr. We want to cover 100 Myr per sec, so times that by 200
+let relativeTime = 1/1000*100*2 // Om / 1000 is roughly the angle that the bar covers in 1 Myr. We want to cover 200 Myr per sec, so times that by 200
 var timeElapsedInfo = document.getElementById('timeElapsedInfo');
 var timeElapsed = 0; //Time elapsed relative to galaxy (1 s real time is approx 100 Myr galaxy time). This unit will be in Gyr
 

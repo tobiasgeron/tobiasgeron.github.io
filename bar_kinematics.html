@@ -12,11 +12,18 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+        <!--For the equations-->
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
 
         <!-- Additional style for graphs-->
         <style>
             .variable-input {
                 width: 22%; /* Adjust the width as needed */
+                font-weight: bold; 
+                color: #3e3e3e;
             }
             
         </style>
@@ -39,57 +46,84 @@
         <article id="barkinematics" class="wrapper style2">
             <div class="container">
                 <header>
-                    <h2>Bar kinematics</h2>
+                    <h2>Bar Kinematics</h2>
                 </header>
 
 
+
+                <p style="text-align:justify;">
+                    This page is designed to provide an intuitive understanding of the kinematics of bars in galaxies. That begins with a brief description of how we model the rotation curves of galaxies. We describe how the rotational velocity of the stars in the disc (\(V_{\rm rot}\)) relates to the distance of the stars to the centre of the galaxy (\(r\)) using a two-parameter arctan function, as described in Courteau (1997): 
+
+                    $$V_{\rm rot} = \frac{2}{\pi} V_{\rm flat} \arctan{\left(\frac{r}{r_{t}}\right)}\;,$$
+
+                    where \(V_{\rm flat}\) is the asymptotic velocity and \(r_{t}\) is the transition radius. In this model, the rotation curve flattens at \(r_{t}\) and goes towards \(V_{\rm flat}\) as \(r\) increases. To get an intuitive understanding of what these parameters do, you can change these two parameters below and see how the rotation curve of our example galaxy (the green line) changes in the left plot, which shows radius against velocity.<br>
+
+                    One of the most important parameters in bar kinematics is called the bar pattern speed (\(\Omega_{\rm bar}\)), also known as the rotational frequency of the bar. As the name implies, this parameter dictates how quickly the bar rotates. To calculate the velocity of the bar at any radius, you simply multiply the pattern speed by the radius (\(\Omega_{\rm bar} \times  r\)), which is shown by the blue line below in the left plot. The intersection of the rotation curve of the galaxy and this line uniquely determines another important kinematic parameter: the corotation radius (\(R_{\rm CR}\)). The corotation radius is the radius at which the stars in the disc rotate with the exact same speed as the bar. Stars in the disc at a radius lower than the corotation radius will continuously overtake the bar, whereas stars with a radius larger than the corotation radius will continuously lag behind the bar. Do note that, rather confusingly, the corotation radius can lie outside the bar region (in fact, it usually does). You can see the effects of the bar pattern speed and corotation radius in the animation on the right. The rotating ellipse represents the bar, while the dashed circle represents the corotation radius. For clarification, I've added a circle that represents the size of the entire galaxy.<br>
+
+                    The last parameter I want to talk about is \(\mathcal{R}\) (also known as "curly R"). It is the ratio of the corotation radius (\(R_{\rm CR}\)) to the bar radius (\(R_{\rm bar}\)). This parameter is often used to classify bars based on their kinematics. A bar with \(\mathcal{R} > 1.4\) is called a slow bar, while a bar that has \(1 < \mathcal{R} < 1.4\) is called a fast bar and a bar with \(\mathcal{R} < 1.0\) is called an ultrafast bar. Please play around with the different input parameters describe above (\(V_{\rm flat}\), \(r\), \(\Omega_{\rm bar}\) and \(R_{\rm bar}\)) to see how they all affect various aspects of the kinematics of barred galaxies. Also, note that every second roughly corresponds to roughly 200 million years in this simulation.
+                     
+
+                    
+                </p>
+
+                
+
+
+
+
                 <div class="container">
-                    <div class="row">
+                    <h3 style="text-align: left;">Input variables</h3>
+                    <div class="row" style="text-align: left;">
 
                         <div class="col-3">
-                            <label for="Vflat">Vflat [km s-1]:</label>
+                            <label for="Vflat" title="The asymptotic velocity"><b>V<sub>flat</sub> [km s-1]:</b></label>
                             <input type="number" step="1" id="Vflat" value="300" min="0" class="variable-input">
                         </div>
 
                         <div class="col-3">
-                            <label for="rt">rt [arcsec]:</label>
+                            <label for="rt" title="The transition radius"><b>r<sub>t</sub> [arcsec]:</b></label>
                             <input type="number" step="0.1" id="rt" value="2" min="0" class="variable-input">
                         </div>
 
                         <div class="col-3">
-                            <label for="omega">&Omega; [km s-1 arcsec-1]:</label>
+                            <label for="omega" title="The bar pattern speed"><b>&Omega;<sub>bar</sub> [km s-1 arcsec-1]:</b></label>
                             <input type="number" step="0.2" id="omega" value="25" class="variable-input">
                         </div>
 
                         <div class="col-3">
-                            <label for="Rbar">Rbar [arcsec]:</label>
-                            <input type="number" step="0.1" id="Rbar" value="8" min="0" class="variable-input">
+                            <label for="Rbar" title="The bar radius"><b>R<sub>bar</sub> [arcsec]:</b></label>
+                            <input type="number" step="0.1" id="Rbar" value="8" min="0" class="variable-input" >
                         </div>
 
                     </div>
                 </div> 
 
                 <br>
+                <br>
 
                 <!-- Display the calculated Rcr and curly R -->
                 <div class="container">
-                    <div class="row">
+                    <h3 style="text-align: left;">Output</h3>
+                    <div class="row" style="text-align: left;">
                         <div class="info-box col-3">
-                            <label>Corotation Radius [arcsec]:</label>
-                            <span id="corotationRadiusInfo"></span>
+                            <label title="The corotation radius"><b>R<sub>CR</sub> [arcsec]:</b></label>
+                            <span id="corotationRadiusInfo" style="font-weight: bold; color: #3e3e3e;"></span>
                         </div>
 
                         <div class="info-box col-3">
-                            <label>Curly R [-]:</label>
-                            <span id="curlyRInfo"></span>
+                            <label title="Curly R"><b> <span>\(\mathcal{R}\)</span> [-]:</b></label>
+                            <span id="curlyRInfo" style="font-weight: bold; color: #3e3e3e;"></span>
                         </div>
 
                         <div class="info-box col-3">
-                            <label>Time elapsed [Gyr]:</label>
-                            <span id="timeElapsedInfo"></span>
+                            <label title="Time elapsed in the simulation since loading this webpage"><b>Time elapsed [Gyr]:</b></label>
+                            <span id="timeElapsedInfo" style="font-weight: bold; color: #3e3e3e;"></span>
                         </div>
                     </div>
                 </div> 
+
+
+                <br>
 
 
                 <div class="chart-container">
@@ -112,8 +146,8 @@
                 
                 <div class="row" style = "align-items: center;">
                     <div class="col-8 col-7-large col-12-medium">
-                        <p>
-                            The bar is currently <span id="curlyRText">XXX</span>.
+                        <p style="text-align:justify;">
+                            The bar is currently <span id="curlyRText" style="font-weight: bold;">XXX</span>.
                         </p>
                     </div>
                 </div>
