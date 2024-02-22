@@ -2,7 +2,7 @@
 
 /* TODO
     - Draw vertical lines at Rcr and barlen. 
-    - Add ideas for them to try out: e.g. make corotation so small it disappears (i.e. bar rotates so fast relative to disc that Rcr approaches 0.)
+    - Add ideas for them to try out: e.g. make corotation so small it disappears (i.e. bar rotates so fast relative to disc that Rcr approaches 0.), note that, if you increase Omega, Rcr shrinks. 
 
 */
 
