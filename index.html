@@ -82,7 +82,7 @@
                     </header>
 
                     <p style="text-align: justify;">
-                        I'm originally from Antwerp, Belgium. I obtained a BSc in Bio-Engineering from the University of Antwerp (2013-2016). After that, I got an MSc in Bio-Engineering from Ghent University (2016-2018), during which I spent one semester as an exchange student at Yonsei University in South Korea. After graduating, I decided to switch academic fields and I started studying Astrophysics at the University of St Andrews in Scotland (2018-2019). I loved this so much, that I eventually pursued a PhD (or, as it is called there, a DPhil) at the University of Oxford, England (2019-2023). I recently started working as a postdoctoral fellow at the University of Toronto in Canada.
+                        I'm originally from Antwerp, Belgium. I obtained a BSc in Bio-Engineering from the University of Antwerp (2013-2016). After that, I got an MSc in Bio-Engineering from Ghent University (2016-2018), during which I spent one semester as an exchange student at Yonsei University in South Korea. After graduating, I decided to switch academic fields and I started studying Astrophysics at the University of St Andrews in Scotland (2018-2019). I loved this so much, that I eventually pursued a PhD (or, as it is called there, a DPhil) at the University of Oxford, England (2019-2023). Afterwards, I started working as a Rubin Postdoctoral Fellow at the University of Toronto in Canada.
 
                         <br><br>
                         Aside from astronomy, I also really enjoy hiking and being out in nature. Some highlights include climbing Mount Kilimanjaro in Tanzania and through-hiking the Pacific Crest Trail in the USA after I finished my PhD. As you might expect, both trips also included spectacular views of the night sky. 
@@ -122,6 +122,19 @@
                         <h2>Research</h2>
                     </header>
                     
+
+                    <div> <!-- Intro -->
+                        <p>
+                            My research spans two branches of astronomy: galaxy evolution and time-domain astrophysics. I am also particularly interested in open-source software development and citizen science.
+                        </p>
+                    </div>
+
+                    
+                    <header>
+                        <h3>Galaxy Evolution</h3>
+                    </header>
+
+                    
                     <div class="row" style = "align-items: center;"> <!-- Quick overview bars -->
                         <div class="col-8 col-7-large col-12-medium">
                             <p>
@@ -147,26 +160,92 @@
                     </div>
 
                     <br>
-                    <div> <!-- Tremaine-Weinberg -->
-                        <p>
-                            I have also spent some time measuring how quickly bars rotate within a galaxy (i.e. their "pattern speed") using a technique known as the Tremaine-Weinberg method. In order to do this, I used data from a survey called <a href="https://www.sdss4.org/surveys/manga/">MaNGA</a>. The cool thing about MaNGA is that it is an IFU survey, which means that it obtains spectra at multiple positions across the face of a galaxy. This means that we have access to reliable kinematic data (i.e. how the stars move) at multiple points for one galaxy. Using this technique, I was able to create the largest catalog of pattern speeds for strongly and weakly bared galaxies to date. One of the interesting results that came out of this study is that the strong bars rotate significantly slower than weak bars. These results, and more, are presented in <a href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.521.1775G/abstract">Géron et al. (2023)</a>. Using these kinematic measurements, one can also classify bars into so-called fast and slow bars. Preliminary results show that fast and slow bars affect their host in very different ways. These exciting results will be published soon. This suggests that the kinematics of the bar, as well as the morphology of the bar, plays an important role. If you're interested to learn more about the kinematics of bars, check out <a href="bar_kinematics.html">this interactive tool</a>. Please note that this tool is still under development.
-                        </p>
-                    </div>
-
-
                     <div> <!-- Galaxy Zoo -->
                         <p>
-                            In order to study strong and weak bars, we first need to identify them in galaxies. This was done using <a href="https://www.zooniverse.org/projects/zookeeper/galaxy-zoo/">Galaxy Zoo</a>, a citizen science project where volunteers can help scientist by classifying the morphology of galaxies. During my PhD, I helped create the Galaxy Zoo DECaLS and Galaxy Zoo DESI catalogs by downloading and uploading images to the project and aggregating the classifications into a final catalog. This involved working with large amounts of data -- Galaxy Zoo DESI contains a total of ~8.7 million galaxies with reliable morphological classifications! 
+                            In order to study strong and weak bars, we first need to identify them in galaxies. This was done using <a href="https://www.zooniverse.org/projects/zookeeper/galaxy-zoo/">Galaxy Zoo</a>, a citizen science project where volunteers can help scientist by classifying the morphology of galaxies. During my PhD, I helped create the Galaxy Zoo DECaLS and Galaxy Zoo DESI catalogs by downloading and uploading images to the project and aggregating the classifications into a final catalog. This involved working with large amounts of data -- Galaxy Zoo DESI contains a total of ~8.7 million galaxies with reliable morphological classifications! Since then, I've been involved in many more iterations of Galaxy Zoo, such as Galaxy Zoo Euclid and Galaxy Zoo CEERS.
                         </p>
                     </div>
 
-
-
-                    <div> <!-- Toronto -->
+                    <br>
+                    <div> <!-- Tremaine-Weinberg -->
                         <p>
-                            Here in Toronto, I will continue my research in galaxy evolution. More specifically, I will study the impact that fast and slow bars have on their host galaxies in much greater detail. Additionally, I will help develop software and new research tools for the Transient and Variable Star Collaboration to make research with data coming from <a href="https://rubinobservatory.org/">Rubin LSST</a> easier and more accessible. Rubin is expected to collect ~20 terabytes of data and generate an estimated ~10 million transient alerts each night, so being prepared for such a huge amount of data is very important.
+                            I have also spent some time measuring how quickly bars rotate within a galaxy (i.e. their "pattern speed") using a technique known as the Tremaine-Weinberg method. In order to do this, I used data from a survey called <a href="https://www.sdss4.org/surveys/manga/">MaNGA</a>. The cool thing about MaNGA is that it is an IFU survey, which means that it obtains spectra at multiple positions across the face of a galaxy. This means that we have access to reliable kinematic data (i.e. how the stars move) at multiple points for one galaxy. Using this technique, I was able to create the largest catalog of pattern speeds for strongly and weakly bared galaxies to date. One of the interesting results that came out of this study is that the strong bars rotate significantly slower than weak bars. These results, and more, are presented in <a href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.521.1775G/abstract">Géron et al. (2023)</a>.
                         </p>
                     </div>
+
+
+                    <div class="row" style = "align-items: center;"> <!-- Radius profile paper -->
+                        <div class="col-8 col-7-large col-12-medium">
+                            <p>
+                                More recently, we found that strongly barred galaxies have a peak of star formation specifically in the centre of the bar, as well as around the bar-end region. The star formation is suppressed in the arms of the bar. Interestingly, when we loop bar kinematics back into the picture, we also noticed that bars that are both slow and strong show the highest amount of star formation along the axis of the bar. This suggests that the kinematics of the bar influences the star formation rate. We now think that this observation can be explained by carefully thinking about how the bar and the surrounding disc rotate. In short, the difference in velocity between the bar and the disk is larger for slow bars than for fast bars. Because of this, a rotating slow bar will come into contact with much more of the gas of its host, compared to a fast bar. This suggests that slow bars are able to possibly trap and concentrate more gas along the bar than fast bars. This increased concentration of gas will increase the amount of observed star formation along the bar axis for slow bars. This is visualized in the Figure on the right. 
+                                
+                                This suggests that the kinematics of the bar, as well as the morphology of the bar, plays an important role in dictates galaxy evolution. If you're interested to learn more about the kinematics of bars, check out <a href="bar_kinematics.html">this interactive tool</a>. Please note that this tool is still under development.
+                                
+                                I wrote a more detailed blog post about this work, which you can find <a href="https://blog.galaxyzoo.org/2024/05/10/slow-strong-bars-affect-their-hosts-the-most/">here</a>, if you are interested. You can also always look at the paper itself: <a href="https://ui.adsabs.harvard.edu/abs/2024ApJ...973..129G/abstract">Géron et al. (2024)</a>.
+                            </p>
+                        </div>
+
+                        <div class="col-4 col-6-medium col-12-small">
+                            <span class="image fit"><img style = "border: 1px solid #555;" src="images/cartoon.png" alt="" /><figcaption style = "font-size: 0.75em;letter-spacing: -0.020em; line-height: 1.25em">A toy model that explains our current observations. Figure taken from Géron et al. (2024). 
+                            </figcaption></span>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row" style = "align-items: center;"> <!-- GZ CEERS -->
+                        <div class="col-8 col-7-large col-12-medium">
+                            <p>
+                                With the extraordinary <a href="https://science.nasa.gov/mission/webb/">JWST</a>, a telescope in space, we can now take pictures of galaxies that are <i>really far away</i>. Due to the finite nature of the speed of light, looking at faraway galaxies means that we are also looking back in time. Astronomers quantify this with a property called "redshift". A redshift of 0 corresponds to the present-day Universe, while higher redshifts means looking back further in time. This sounds a bit abstract, but a redshift of ~2 corresponds to a looking back 10 billion years in time. To put this in perspective, the Universe is only ~13.7 billion years old. We can leverage this to our advantage to study how the morphology of galaxies changes over time. This was done with a recent iteration of Galaxy Zoo called GZ CEERS, where volunteers classified images from the <a href="https://ceers.github.io/">CEERS survey</a>. As I am particularly interested in barred galaxies (see all the paragraphs above for why barred galaxies are fun), I wanted to study how many galaxies have bars, as a function of time. The results are shown in the Figure on the right. The different coloured dots are results from other papers, while the black full line is our result. In the present-day Universe, roughly half of all galaxies have a bar. However, going back in time, we find that fewer galaxies have bars. This is expected, as it takes time for a bar to form. However, the main takeaway is that we still find <i>a lot</i> of bars in the early universe. Even at a redshift of 2, which corresponds to ~10 billion years ago, already 20% of all disk galaxies had a bar! This has all kinds of implications for the formation mechanisms of bars, structure of galaxies in the early universe, and galaxy evolution in general. If you are interested, I wrote a slightly more detailed blog post about this work <a href="https://blog.galaxyzoo.org/2025/07/03/looking-for-bars-in-faraway-galaxies/">here</a>. Alternatively, you can find much more information in the paper: <a href="https://ui.adsabs.harvard.edu/abs/2025ApJ...987...74G/abstract">(Géron et al. 2025)</a>
+                            </p>
+                        </div>
+
+                        <div class="col-4 col-6-medium col-12-small">
+                            <span class="image fit"><img style = "border: 1px solid #555;" src="images/gz_ceers_barfrac_simplified.png" alt="" /><figcaption style = "font-size: 0.75em;letter-spacing: -0.020em; line-height: 1.25em">The different coloured dots are results from other papers, while the black full line is our result. The main takeaway is that we still find <i>a lot</i> of bars in the early universe. Figure taken from Géron et al. (2025). 
+                            </figcaption></span>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+                    <header>
+                        <h3>Time-domain astrophysics</h3>
+                    </header>
+
+
+                    <div> <!-- General -->
+                        <p>
+                            I am also interested in various topics in time-domain astrophysics and am part of the Transient and Variable Star Science Collaboration of the <a href="https://rubinobservatory.org/">Vera Rubin Observatory</a>. I moved to Toronto as a Rubin Postdoctoral Fellow, and have spent the past few years writing software and preparing for Rubin's LSST. Rubin is expected to collect ~20 terabytes of data and generate an estimated ~10 million transient alerts <i>each night</i>, so being prepared for such a huge amount of data is important.
+                        </p>
+                    </div>
+
+
+                    <div> <!-- pre-SN variability -->
+                        <p>
+                            The progenitors of core-collapse supernovae (SNe) were historically thought to be relatively static in the final moments before explosion. However, recent observations challenge this view. We now know that around ~9% of core-collapse SN show signs of strong interaction with nearby dense circumstellar material (CSM). These are also called `SN Type IIn'. Interestingly, even many `normal' SNe observed within a few days of explosion also suggest the presence of a dense CSM. However, the origin and prevalence of this material remains unclear. One possible hypothesis is that this CSM is the result of eruptive outbursts (i.e. `mini explosions') shortly before the actual SN explosion. This so-called `pre-SN variability' has been observed in ~50% of SN Type IIn, but seems rare in other SN types. Detecting the presence (or absence) of this pre-SN variability is central to understanding the origin of this dense CSM and its formation mechanism. On 11 April 2024, a supernova called <a href="https://www.wis-tns.org/object/2024ggi">SN 2024ggi</a> was detected in a very nearby galaxy. It was classified as a SN Type II, and different groups have confirmed the presence of a dense CSM. This makes it an ideal target to look for pre-SN variability! I am currently analysing its light curve for any hints. Stay tuned, more updates coming soon!
+                        </p>
+                    </div>
+
+
+
+
+
+                    <div> <!-- DETECT -->
+                        <p>
+                            In order to make the search for pre-SN variability easiest with the upcoming Vera Rubin Observatory, I developed <i>Detection Efficiency and Threshold Estimation for Characterization of Transients</i>, or DETECT (yes, I am proud of the acronym). It is a Python package built to correctly characterize detection thresholds for any image taken by the Rubin Observatory. This is important as even state-of-the-art image subtraction pipelines struggle when the target is embedded in a nearby bright galaxies (and interesting pre-SN variability targets usually are). The DETECT pipeline works by performing a series of source injection, image subtraction, and forced photometry, as shown in the image below. The code is publicly available <a href="https://github.com/tobiasgeron/detect">here</a>. More information coming soon! 
+                        </p>
+
+                        <div class="col-4 col-6-medium col-12-small">
+                            <span class="image fit"><img src="images/detect_overview.png" style = "border: 1px solid #555;" alt="" /><figcaption style = "font-size: 0.75em;letter-spacing: -0.020em; line-height: 1.25em">Overview of the DETECT workflow applied on <a href="https://www.wis-tns.org/object/2025brs">SN 2025brs</a>, a Type Ia supernova. This Figure is taken from Géron et al. (in prep). The red cross denotes the reported location of SN 2025brs. DETECT performs a series of source injection, image subtraction and forced photometry to carefully calculate detection thresholds.
+                            </figcaption></span>
+                        </div>
+                    </div>
+
 
 
                 </div>
@@ -189,6 +268,8 @@
                     <ul class="container" style="text-align: left">
                         <h4>First author publications</h4>
 
+                        <li>GZ CEERS: Bar fractions up to z~4.0 <a href="https://ui.adsabs.harvard.edu/abs/2025ApJ...987...74G/abstract">(Géron et al. 2025)</a></li>
+
                         <li>The Effects of Bar Strength and Kinematics on Galaxy Evolution: Slow Strong Bars Affect Their Hosts the Most <a href="https://ui.adsabs.harvard.edu/abs/2024ApJ...973..129G/abstract">(Géron et al. 2024)</a></li>
 
                         <li>Galaxy Zoo: Kinematics of strongly and weakly barred galaxies <a href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.521.1775G/abstract">(Géron et al. 2023)</a></li>
@@ -200,6 +281,13 @@
 
 
                         <h4>Co-author publications</h4>
+
+
+                        <li>Structural decomposition of merger-free galaxies hosting luminous AGNs <a href="https://ui.adsabs.harvard.edu/abs/2025MNRAS.537.3511F/abstract">(Fahey et al. 2025)</a></li>
+
+                        <li>Time-scales for the effects of interactions on galaxy properties and SMBH growth <a href="https://ui.adsabs.harvard.edu/abs/2025MNRAS.539.2967O/abstract">(O'Ryan et al. 2025)</a></li>
+
+                        <li>Galaxy Zoo JWST: up to 75 per cent of discs are featureless at 3 < z < 7 <a href="https://ui.adsabs.harvard.edu/abs/2025MNRAS.539.1359S/abstract">(Smethurst et al. 2025)</a></li>
 
                         <li>The host of GRB 171205A in 3D: A resolved multiwavelength study of a rare grand-design spiral GRB host <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...690A..66T/abstract">(Thöne et al. 2024)</a></li>
 
