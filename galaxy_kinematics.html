@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JL4FNDWTZ"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-5JL4FNDWTZ');
+        </script>
+
+        
+		<title>Galaxy kinematics</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <!--For the equations-->
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+        <!-- Additional style for graphs-->
+        <style>
+            .variable-input {
+                width: 22%; /* Adjust the width as needed */
+                font-weight: bold; 
+                color: #3e3e3e;
+            }
+
+            input[type="checkbox"] {/*In the main.css file, this is disabled and doesn't allow checkbox to show. So override here for the checkbox*/
+                appearance: checkbox !important;
+            }
+
+
+
+            
+        </style>
+
+
+	</head>
+	<body class="is-preload">
+
+        <!-- Nav -->
+            <nav id="nav">
+				<ul class="container" style="text-align:left;">
+                    <li><a href="index.html">Go back to main page</a></li>
+				</ul>
+			</nav>
+
+
+    
+
+
+        <article id="galaxykinematics" class="wrapper style2">
+            <div class="container">
+                <header>
+                    <h2>Galaxy Kinematics</h2>
+                </header>
+
+
+
+                <p style="text-align:justify;">
+
+                    I created this page to get a more intuitive understanding of galaxy kinematics, rotation curves, and IFU velocity fields. Perhaps this page will be useful for someone else as well.
+                
+
+
+                    <br><br>
+
+                    The stars of most disc galaxies rotate regularly-ish around the centre of the galaxy. We know that the velocity of these stars (\(V_{\rm rot}\)) is lowest in the centre of the galaxy and goes up with radius (\(r\)), and eventually flattens out. One way to describe this mathematically is with the two-parameter arctan function described in <a href = 'https://ui.adsabs.harvard.edu/abs/1997AJ....114.2402C/abstract' target="_blank">Courteau (1997)</a>: 
+
+                    $$V_{\rm rot}(r) = V_{\rm sys}+\frac{2}{\pi} V_{\rm flat} \arctan{\left(\frac{r}{r_{t}}\right)}\;,$$
+
+                    where \(V_{\rm flat}\) is called the asymptotic velocity and \(r_{t}\) is the transition radius. In this mathematical model, the rotation curve flattens at \(r = r_{t}\) and goes towards \(V_{\rm flat}\) as \(r\) increases. \(V_{\rm sys}\) is called the systemic velocity, which is assumed to be 0. This rotation curve is plotted below for default values of \(V_{\rm flat}\) and \(r_{t}\). To get an intuitive understanding of what these parameters do, you can change their values below and see how the rotation curve changes.
+
+                    <br><br>
+
+                    However, a rotation curve like that only tells half the story. Nowadays, we can observe galaxies with so-called integral field units (IFUs). They allow us to study the kinematics of galaxies in much greater detail by providing a two-dimensional map of the observed velocity of the stars across the face of the galaxy. For more information on IFUs, see e.g., <a href = 'https://www.sdss4.org/surveys/manga/' target="_blank">here</a>. We can expand the equation above to account for this:
+
+                    $$ V_{\rm obs}(r, \phi) = V_{\rm sys}+\frac{2}{\pi} V_{\rm flat} \arctan{\left(\frac{r}{r_t}\right)} \sin{(i)} \cos{(\phi - \textrm{PA})}\;.$$
+
+                    Note that the velocity now depends on both the distance to the centre of the galaxy (\(r\)) and angle (\(\phi\)). Also note that this equation is essentially the same equation as before, but with added terms to account for the inclination of the galaxy (\(i\)) and position angle of the galaxy (\(\textrm{PA}\)). An example of this velocity field is shown on the right below. Again, feel free to adjust the input parameters to get a better sense of what they do.
+
+                    On top of the parameters described above, we also implement an optional warp parameter, \(w\), (e.g., see <a href = 'https://ui.adsabs.harvard.edu/abs/2018MNRAS.480.2217S/abstract' target="_blank">Stark et al. 2018</a>.). This warp parameter will change the \(\textrm{PA}\) of the disc at a rate of \(w\) degrees per arcsec. Finally, you can also adjust the maximum distance to which we plot (\(r_{\rm max}\)) and the pixel scale of the observations.
+
+
+                    <!--Note that, when i = 0, the IFU does not measure anything. This is because there is no line-of-sight velocity component anymore.  
+                    
+                    One of the most powerful ways to study the kinematics of galaxies is through so-called integral field units (IFUs). 
+
+                    Instead of taking one spectra per galaxy, IFUs take many spectra across the face of the galaxy. This allowed for very detailed studies of the kinematics of galaxies. For more information, see <a href = 'https://www.sdss4.org/surveys/manga/'>here</a>.
+
+                    One of those IFU surveys is called the <a href='https://www.sdss4.org/surveys/manga/'>MaNGA</a> survey.
+
+                    I have spent a lot of time working with IFUs and MaNGA. The goal of this page is to help you get a better intuition of what IFUs 
+                    
+                    -->
+    
+                    <br><br>
+                    Note that you can always obtain the rotation curve (left plot) from the velocity field (right plot) if you measure the velocity along the PA of the galaxy and correct for its inclination.
+                    
+                </p>
+
+                
+
+
+
+
+                <div class="container">
+                    <h3 style="text-align: left;">Input variables</h3>
+                    <div class="row" style="text-align: left;">
+
+                        <div class="col-3">
+                            <label for="Vflat" title="The asymptotic velocity"><b>V<sub>flat</sub> [km s-1]:</b></label>
+                            <input type="number" step="1" id="Vflat" value="300" min="0" class="variable-input">
+                        </div>
+
+                        <div class="col-3">
+                            <label for="rt" title="The transition radius"><b>r<sub>t</sub> [arcsec]:</b></label>
+                            <input type="number" step="0.1" id="rt" value="2" min="0" class="variable-input">
+                        </div>
+
+                        <div class="col-3">
+                            <label for="Vsys" title="The systematic velocity"><b>V<sub>sys</sub> [km s-1]:</b></label>
+                            <input type="number" step="1" id="Vsys" value="0" min="0" class="variable-input">
+                        </div>
+
+                        <div class="col-3">
+                            <label for="pa" title="Position angle of the galaxy"><b>PA [deg]:</b></label>
+                            <input type="number" step="1" id="pa" value="0" class="variable-input">
+                        </div>
+
+                        <div class="col-3">
+                            <label for="inc" title="The inclination"><b>inc [deg]:</b></label>
+                            <input type="number" step="1" id="inc" value="45" min="0" max = "90" class="variable-input">
+                        </div>
+
+                        <div class="col-3">
+                            <label for="warp" title="The warp"><b>w [deg/arcsec]:</b></label>
+                            <input type="number" step="0.2" id="warp" value="0" class="variable-input">
+                        </div>
+
+                        <div class="col-3">
+                            <label for="rmax" title="The maximum madius"><b>r<sub>max</sub> [arcsec]:</b></label>
+                            <input type="number" step="1" id="rmax" value="20" min="0" class="variable-input">
+                        </div>
+
+                        <div class="col-3">
+                            <label for="precision" title="The precision"><b>pixel scale [arcsec/pix]:</b></label>
+                            <input type="number" step="0.1" id="precision" value="0.5" min="0.1" class="variable-input">
+                        </div>
+
+                    </div>
+
+                    <br>
+
+                </div> 
+
+                <br>
+                
+                
+                 <!-- Display the figures -->
+                <div class="container">
+                <h3 style="text-align: left;">Figures</h3>
+                </div>
+
+               
+
+                <div class="chart-container">
+                
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-6"> <!-- canvas for rotation curves -->
+                                <!-- <canvas id="rotationCurveCanvas" width="800" height="400"  style = "width: 100%; height: auto;"></canvas>-->
+                                <div id="rotationCurve" style="height:400px;"></div> <!--width:800px-->
+                            </div>
+
+                            <div class="col-6"> <!-- canvas for rotating bar -->
+                                <!-- <canvas id="velocityFieldCanvas" width="400" height="400" style = "width: 100%; height: auto;"></canvas>-->
+                                <div id="velocityField" style="height:400px; aspect-ratio: 1 / 1;"></div><!--width:600px-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+        
+                <div class="container">
+                <p style="text-align: left;">
+                    The plots were created with <a href = 'https://plotly.com/graphing-libraries/' target="_blank">plotly</a>. Enjoyed this interactive demo? Perhaps you will also enjoy <a href = "bar_kinematics.html">this</a>.
+                </p>
+                </div>
+
+                
+
+                
+            
+
+                
+            </div>
+        </article>
+
+
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
+	    <script src="code/plotly-3.3.0.min.js" charset="utf-8"></script><!-- Using plotly for the 2D graph! -->
+
+        <script src="code/galaxy_kinematics_script.js"></script><!-- For the galaxy kinematics logic -->
+
+
+
+
+    </body>
+</html>
