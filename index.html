@@ -31,6 +31,7 @@
 					<li><a href="#personal">Personal</a></li>
 					<li><a href="#research">Research</a></li>
                     <li><a href="#publications">Publications</a></li>
+                    <li><a href="#software">Software</a></li>
 					<li><a href="#contact">Contact</a></li>
                     <li><a href="resume/resume.pdf" download="Tobias_Geron_short_CV" download target="_blank">Short CV</a></li>
 				</ul>
@@ -330,14 +331,6 @@
                         <li>Galaxy Zoo DECaLS: Detailed visual morphology measurements from volunteers and deep learning for 314 000 galaxies <a href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.509.3966W/abstract">(Walmsley et al. 2022)</a></li>
 
                         <li>Practical galaxy morphology tools from deep supervised representation learning <a href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.513.1581W/abstract">(Walmsley et al. 2022)</a></li>
-
-                        
-
-                        
-                        
-
-
-                    
                         
                     </ul>
 
@@ -347,8 +340,40 @@
 
 
 
+        
+            
+        <!-- Software -->
+            <article id="software" class="wrapper style2">
+                <div class="container">
+                    <header>
+                        <h2>Software Packages</h2>
+                    </header>
+
+                    <p style="text-align: left">The code for all my packages is open-source and publicly available on <a href="https://github.com/tobiasgeron">GitHub.</a></p>
+                    
+                    <ul class="container" style="text-align: left">
+
+                        <li> <b>flexAE</b>: A flexible auto-encoder framework that seamlessly incorporates multiple state-of-the-art AE components. Used in Géron et al. (in prep) to identify unresolved binaries in data from Rubin DP1. Currently in development. </li>
+
+                        <li> <b>template_fitting</b>: Includes routines to rapidly fit single or binary stellar template models to data using any custom template library and any set of filters. Currently in development.</li>
+
+                        <li> <b>DETECT</b>: Quantify detection thresholds and upper limits in any image from Rubin LSST by performing a series of source injection, image subtraction, and forced photometry on a case-by-case basis. This code was introduced and used in <a href = 'https://ui.adsabs.harvard.edu/abs/2026arXiv260320374G/abstract'>Géron et al. (submitted)</a> to look for pre-SN variability in data from Rubin DP1. Code available <a href = 'https://github.com/tobiasgeron/detect'>here</a>. </li>
+
+                        <li> <b>BarPy</b>: A collection of various techniques commonly used in the astronomical literature on images of barred galaxies. Currently includes ellipse fitting techniques. Fourier-based techniques coming soon. Code available <a href = 'https://github.com/tobiasgeron/barpy'>here</a>. </li>
+                    
+                        <li> <b>Tremaine-Weinberg</b>: Calculate the bar pattern speed, corotation radius and R of barred galaxies using the Tremaine-Weinberg method. This was originally developed to work with data from the MaNGA survey, but now works with data from any IFU. This code was used in Géron et al. (2023), Géron et al. (2024), Qiu et al. (2025), Pearlstein et al. (2025), and Mengistu et al. (2026). Code available <a href = 'https://github.com/tobiasgeron/Tremaine_Weinberg'>here</a>. </li>
+                    
+                        <li><b>Coordinate_matching</b>: A fast pipeline to facilitate cross-matching different astronomical catalogues that automatically removes duplicates and can match recursively to ensure the maximum amount of reliable matches. Code available <a href = 'https://github.com/tobiasgeron/coordinate_matching'>here</a>. </li>
+                    </ul>
+
+
+                </div>
+            </article>
+
+
+
         <!-- Demos-->
-        <article id="personal" class="wrapper style2">
+        <article id="demos" class="wrapper style2">
                 <div class="container">
                     <header>
                         <h2>Interactive demos</h2>
@@ -365,7 +390,7 @@
 
                     </div>
                 </div>
-			</article>
+		</article>
 
 
 
